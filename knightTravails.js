@@ -65,4 +65,25 @@ airports.forEach(item => {
 
 airports.forEach(addVertex);
 routes.forEach(route => addEdge(...route))
-print()
+
+
+
+function bfs(root){
+    const queue = [root];
+    const visited = new Set();
+
+    while(queue.length > 0){
+
+        let airport = queue.shift();
+        visited.add(airport);
+        const destinations = graph.get(airport);
+
+        for(let destination of destinations){
+            
+        }
+
+    }
+}
+
+console.log(graph);
+//bfs("PHX");
