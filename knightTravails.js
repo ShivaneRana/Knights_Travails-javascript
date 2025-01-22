@@ -1,6 +1,5 @@
-
-
-//represent a chessboard
+//  represent a chessboard.
+//  just for reference.
 const adjacencyMatrix = [
     [0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0],
@@ -11,6 +10,7 @@ const adjacencyMatrix = [
     [0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0],
 ];
+
 
 
 //  algorithm for finding the shortest path in the chessboard~
@@ -24,7 +24,7 @@ const adjacencyMatrix = [
 //      insert all the valid position into the queue if not already visited
 //      increment steps
 //      pop the first element in the queue
-//  return all the node visited to reach the end position
+//  return all the node visited  to reach the end position
 //  valid moves~
 //  you can either + or - the points
 //  + leads to right for column 
@@ -33,3 +33,33 @@ const adjacencyMatrix = [
 //  + leads to down for row
 //  - leads to up for row
 //  the sequence of these moves also matters
+
+function knightMoves(origin,target){
+    if(!Array.isArray(origin) || !Array.isArray(target)){
+        throw new Error("Only arrays are allowed");
+    }
+
+    if(origin.length !== 2 || target.length !== 2){
+        throw new Error("Array length is not optimal");
+    }
+}
+
+// all the valid moves that a knight can move
+const moves = [
+    //x,y(row, column)
+    [1,-2],
+    [1,2],
+    [2,-1],
+    [2,1],
+    [-1,-2],
+    [-1,2],
+    [-2,1],
+    [-2,-1],
+]
+
+function validMoves(arr1){
+    const x = arr1[0]; //row
+    const y = arr1[1];  //column
+
+
+}
