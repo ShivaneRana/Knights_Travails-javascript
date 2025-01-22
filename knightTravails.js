@@ -25,6 +25,8 @@ const adjacencyMatrix = [
 //      increment steps
 //      pop the first element in the queue
 //  return all the node visited  to reach the end position
+
+ 
 //  valid moves~
 //  you can either + or - the points
 //  + leads to right for column 
@@ -57,9 +59,20 @@ const moves = [
     [-2,-1],
 ]
 
-function validMoves(arr1){
-    const x = arr1[0]; //row
-    const y = arr1[1];  //column
+function findValidMoves(arr1){
+    let posx = arr1[0]; //row
+    let posy = arr1[1];  //column
+    const result = [];
+    for(let move of moves){
+        const [x,y] = move; //assign x and y various moves
+        const newX = posx + x;
+        const newY = posy + y;
 
+        if(newX >= 0 && newX < 8 && newY < 8 && newY >= 0){
+            result.push([newX,newY]);
+        }
+    }
 
+    // console.log(result.length);
+    // console.log(result);
 }
