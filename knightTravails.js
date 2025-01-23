@@ -27,9 +27,9 @@ function knightMoves(origin,target){
         throw new Error("Array length is not optimal");
     }
 
-    const queue = [origin];     //store all moves address
-    const visited = new Set();  //keep track of all the visited node
-    let steps = 0;              //keep track of number of steps taken
+    const queue = [origin];             //store all moves address
+    const visited = new Set();          //keep track of all the visited node
+    let steps = 0;                      //keep track of number of steps taken
     while(queue.length > 0){
     const size = queue.length;
         for(let i = 0;i < size;i++){
@@ -46,7 +46,6 @@ function knightMoves(origin,target){
                 
                 if(!visited.has(str(move))){
                     queue.push(move);
-                    
                     visited.add(str(move));
                 }
             }
@@ -77,8 +76,8 @@ function findValidMoves(arr1){
     ];
 
     let posx = arr1[0]; //row
-    let posy = arr1[1];  //column
-    const result = [];
+    let posy = arr1[1]; //column
+    const result = [];  //array containing all the valid moves
 
     for(let move of moves){
         const [x,y] = move; //assign x and y various moves
@@ -94,7 +93,7 @@ function findValidMoves(arr1){
 }
 
 function str(value){
-    return JSON.stringify(value);
+    return `${value[0]},${value[1]}`;
 }
 
-knightMoves([0,0],[1,3]);
+knightMoves([3,3],[4,3]);
