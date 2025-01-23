@@ -30,16 +30,27 @@ function knightMoves(origin,target){
     const queue = [origin];             //store all moves address
     const visited = new Set();          //keep track of all the visited node
     let steps = 0;                      //keep track of number of steps taken
+    const path = {};
+    path[str(origin)] = null;           //origin node has no parent
     while(queue.length > 0){
     const size = queue.length;
         for(let i = 0;i < size;i++){
             const node = queue.shift();
-            visited.add(str(node));  
+            visited.add(str(node));
+
             const validMoves = findValidMoves(node);
             
             for(let move of validMoves){
                 if(str(move) === str(target)){
                     steps++;
+                    path[str(move)] = str(node);
+                    let current = str(move);
+                    const temp = [];
+                    while(current !== null){
+                        temp.push(current);
+                        current = path[current];
+                    }
+                    console.log(temp.reverse());
                     console.log(`${target} found in ${steps} steps`);
                     return;
                 }
@@ -47,6 +58,7 @@ function knightMoves(origin,target){
                 if(!visited.has(str(move))){
                     queue.push(move);
                     visited.add(str(move));
+                    path[str(move)] = str(node);
                 }
             }
         }
