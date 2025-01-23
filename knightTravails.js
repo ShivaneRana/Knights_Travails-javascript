@@ -1,17 +1,3 @@
-//  algorithm for finding the shortest path in the chessboard~
-//  get a starting position and end position
-//  create variable for steps taken, queue and visited node
-//  insert starting position in the queue
-//  run a while loop until queue length is more than 0 
-//      
-//      check all the valid positions
-//      check if valid position equal to end position and return
-//      insert all the valid position into the queue if not already visited
-//      increment steps
-//      pop the first element in the queue
-//  return all the node visited  to reach the end position
-
-
 function knightMoves(origin,target){
 
     if(str(origin) === str(target)){
@@ -108,4 +94,4 @@ function str(value){
     return `${value[0]},${value[1]}`;
 }
 
-knightMoves([3,3],[4,3]);
+knightMoves([0,0],[7,5]);
