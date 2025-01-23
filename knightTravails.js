@@ -1,18 +1,3 @@
-//  represent a chessboard.
-//  just for reference.
-const adjacencyMatrix = [
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-];
-
-
-
 //  algorithm for finding the shortest path in the chessboard~
 //  get a starting position and end position
 //  create variable for steps taken, queue and visited node
@@ -26,15 +11,6 @@ const adjacencyMatrix = [
 //      pop the first element in the queue
 //  return all the node visited  to reach the end position
 
- 
-//  valid moves~
-//  you can either + or - the points
-//  + leads to right for column 
-//  - leads to left for column
-//  can only perform one at a time
-//  + leads to down for row
-//  - leads to up for row
-//  the sequence of these moves also matters
 
 function knightMoves(origin,target){
     if(!Array.isArray(origin) || !Array.isArray(target)){
@@ -44,35 +20,41 @@ function knightMoves(origin,target){
     if(origin.length !== 2 || target.length !== 2){
         throw new Error("Array length is not optimal");
     }
-}
 
-// all the valid moves that a knight can move
-const moves = [
-    //x,y(row, column)
-    [1,-2],
-    [1,2],
-    [2,-1],
-    [2,1],
-    [-1,-2],
-    [-1,2],
-    [-2,1],
-    [-2,-1],
-]
+    // all the valid moves that a knight can move
+    //  you can either + or - the points
+    //  + leads to right for column 
+    //  - leads to left for column
+    //  can only perform one at a time
+    //  + leads to down for row
+    //  - leads to up for row
+    //  the sequence of these moves also matters
+    function findValidMoves(arr1){
+        const moves = [
+            //x,y(row, column)
+            [1,-2],
+            [1,2],
+            [2,-1],
+            [2,1],
+            [-1,-2],
+            [-1,2],
+            [-2,1],
+            [-2,-1],
+        ];
 
-function findValidMoves(arr1){
-    let posx = arr1[0]; //row
-    let posy = arr1[1];  //column
-    const result = [];
-    for(let move of moves){
-        const [x,y] = move; //assign x and y various moves
-        const newX = posx + x;
-        const newY = posy + y;
+        let posx = arr1[0]; //row
+        let posy = arr1[1];  //column
+        const result = [];
+        for(let move of moves){
+            const [x,y] = move; //assign x and y various moves
+            const newX = posx + x;
+            const newY = posy + y;
 
-        if(newX >= 0 && newX < 8 && newY < 8 && newY >= 0){
-            result.push([newX,newY]);
+            if(newX >= 0 && newX < 8 && newY < 8 && newY >= 0){
+                result.push([newX,newY]);
+            }
         }
-    }
 
-    // console.log(result.length);
-    // console.log(result);
+        return result;
+    }
 }
