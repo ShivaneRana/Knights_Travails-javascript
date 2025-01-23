@@ -34,7 +34,7 @@ function knightMoves(origin,target){
     const size = queue.length;
         for(let i = 0;i < size;i++){
             const node = queue.shift();
-            visited.add(str(node));
+            visited.add(str(node));  
             const validMoves = findValidMoves(node);
             
             for(let move of validMoves){
